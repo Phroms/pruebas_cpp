@@ -13,6 +13,9 @@
 # include "../../inc/commands/Mode.hpp"
 # include "../../inc/Channel.hpp"
 
+# define RPL_CHANNELMODES(servername, nickname, channel, flag) \
+            (std::string(":" + servername + " 324 " + nickname + " " + channel + " " + modes))
+
         /* Controla que los usuarios sean OP(operadores - admin)
             MODE tendra los siguientes modos(modificaciones):
 
@@ -48,7 +51,7 @@ void Mode::execute(Server &server, Client &c, std::vector<std::string> args)
         std::string response = "MODE " + channelName + " " + modes + "\r\n";
 
         // Enviar el mensaje a todos los usuarios del canal
-        server.message.sendMessage(c.getFd(), response);
+        server.sendResponse(c.getFd(), RPL_CHANNELMODES(server.getServerName(), c.getNickname(), channelName, modes));
         return ;
     }
 

@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Client.hpp"
+# include "../inc/Client.hpp"
+# include "../inc/utils.hpp"
 # include <sstream>
 # include <vector>
 # include <string>

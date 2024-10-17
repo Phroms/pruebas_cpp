@@ -246,12 +246,10 @@ const std::string Channel::getAllModes() const
 		ret += 'l';
 	if (modes.at('k') == true)
 		ret += 'k';
-
 	if (modes.at('l') == true)
 		ret += " " + str.str();
 	if (modes.at('k') == true)
 		ret += " " + this->getKey();
-
 	return ret;
 }
 
